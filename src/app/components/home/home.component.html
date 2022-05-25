@@ -1,0 +1,62 @@
+<div class="container-fluid screen" >
+  <div class="row">
+    <div class="col-md-4 menu-item-container" (click)="navigate('manageInventory')">
+      <div class="menu-item">
+        <div class="menu-item-icon">
+          <fa-icon class="icon" [icon]="faBoxOpen"></fa-icon>
+        </div>
+        <div class="menu-item-label">
+          Inventaire
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 menu-item-container" (click)="navigate('dashboard')">
+      <div class="menu-item">
+        <div class="menu-item-icon">
+          <fa-icon class="icon" [icon]="faChartBar"></fa-icon>
+        </div>
+        <div class="menu-item-label">
+          Statistiques
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 menu-item-container">
+      <div class="menu-item" (click)="navigate('manageProviders')">
+        <div class="menu-item-icon">
+          <fa-icon class="icon" [icon]="faShippingfast"></fa-icon>
+        </div>
+        <div class="menu-item-label">
+          Fournisseurs
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-md-0 col-lg-2"></div>
+
+    <div class="col-md-4 menu-item-container">
+      <div class="menu-item" (click)="navigate('manageLoans')">
+        <div class="menu-item-icon">
+          <fa-icon class="icon" [icon]="faHandHoldingUsd"></fa-icon>
+        </div>
+        <div class="menu-item-label">
+          Crédits
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 menu-item-container">
+      <div class="menu-item" (click)="navigate('manageSpendings')">
+        <div class="menu-item-icon">
+          <fa-icon class="icon" [icon]="faCoins"></fa-icon>
+        </div>
+        <div class="menu-item-label">
+          Dépenses
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

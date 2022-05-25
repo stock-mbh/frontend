@@ -1,0 +1,163 @@
+<div class="container-fluid" style="padding-top:20px">
+  <div class="row title-row">
+    <div class="col-md-12">
+      <h1 class="title">Gérer les produits</h1>
+    </div>
+  </div>
+  <div class="row filters" style="padding-top: 20px;padding-bottom: 20px;">
+    <div class="col-0 col-md-4 col-lg-10"></div>
+    <div class="col-6 col-sm-1 col-md-2 col-lg-1 btn-container">
+      <button class="btn custom-btn-primary add-btn" (click)="navigate('/manageProducts/addProduct')"
+        routerLinkActive="router-link-active">
+        <fa-icon  [icon]="faPlus"></fa-icon>
+      </button>
+    </div>
+    <div class="col-6 col-sm-1 col-md-2 col-lg-1 btn-container">
+      <button class="btn custom-btn-secondary show-filter-btn" (click)="showFilters=!showFilters">
+        <fa-icon  [icon]="faFilter"></fa-icon>
+      </button>
+    </div>
+
+  </div>
+  <div class="filters" *ngIf="showFilters">
+    <div class="row">
+      <div class="col-md-0 col-lg-2"></div>
+
+      <div class="col-6 col-sm-6 col-lg-2">
+        <label for="category">Catégorie</label>
+        <ng-select [(ngModel)]="category" name="category">
+          <ng-option *ngFor="let element of categories" [value]="element">{{element.name}}</ng-option>
+        </ng-select>
+
+      </div>
+      <div class="col-6 col-sm-6 col-lg-2">
+        <label for="brand">Marque</label>
+        <ng-select [(ngModel)]="brand" name="brand">
+          <ng-option *ngFor="let element of category?.brands" [value]="element">{{element}}</ng-option>
+        </ng-select>
+
+      </div>
+      <div class="col-6 col-sm-6 col-lg-2">
+        <label for="color">Couleur</label>
+        <ng-select [(ngModel)]="color" name="color">
+          <ng-option *ngFor="let element of colors" [value]="element">{{element.name}}</ng-option>
+        </ng-select>
+
+      </div>
+      <div class="col-6 col-sm-6 col-lg-2">
+        <label for="state">Etat</label>
+        <ng-select [(ngModel)]="state" name="state">
+          <ng-option *ngFor="let element of states" [value]="element">{{element}}</ng-option>
+        </ng-select>
+      </div>
+
+
+
+
+
+    </div>
+    <div class="row">
+      <div class="col-sm col-lg-2"></div>
+      <div class="col-12 col-sm-6 col-md-12 col-lg-2">
+        <label for="provider">Fournisseur</label>
+        <ng-select [(ngModel)]="provider" name="provider">
+          <ng-option *ngFor="let element of providers" [value]="element">{{element.name}}</ng-option>
+        </ng-select>
+      </div>
+      <div class="col-6 col-sm-6 col-lg-2">
+        <div class="form-group">
+          <label>Prix</label>
+          <input type="number" class="form-control amount-input" [(ngModel)]="minPrice" name="minPrice"
+            placeholder="De">
+          <input type="number" class="form-control amount-input" [(ngModel)]="maxPrice" name="maxPrice"
+            placeholder="Jusqu'à">
+        </div>
+      </div>
+      <div class="col-6 col-sm-6 col-lg-2">
+        <div class="form-group">
+          <label>Quantité</label>
+          <input type="number" class="form-control amount-input" [(ngModel)]="minQuantity" name="minQuantity"
+            placeholder="De">
+          <input type="number" class="form-control amount-input" [(ngModel)]="maxQuantity" name="maxQuantity"
+            placeholder="Jusqu'à">
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-12 col-lg-2 search-btn-container">
+        <button class="btn custom-btn-secondary reset-btn" (click)="reset()">Réinitialiser</button>
+        <button class="btn custom-btn-primary search-btn" (click)="searchWithFilters()">Filtrer</button>
+      </div>
+    </div>
+  </div>
+  <div class="row centered" style="padding-bottom: 30px;padding-top: 30px;text-align: center;">
+    <div class="col-0 col-md-3"></div>
+    <div class="col-12 col-md-6 col-lg-6">
+      <input type="name" id="form1" class="form-control search-input" placeholder="Rechercher" [(ngModel)]="searchable"
+        [ngModelOptions]="{standalone: true}" (keyup)="search()" />
+    </div>
+  </div>
+  <div class="row centered">
+
+    <div class="col-12 col-md-12 col-lg-12" *ngIf="filtredProducts?.length==0">
+      <h1 class="message">Aucun produit trouvé</h1>
+    </div>
+    <div class="col-12 col-md-12 col-lg-12" *ngIf="loading" style="text-align: center;padding-top: 50px;">
+      <img src="assets/loading.gif">
+    </div>
+
+    <div class="col-6 col-md-6 col-lg-3 product-container" 
+    *ngFor="let product of filtredProducts | paginate:{itemsPerPage: 20, currentPage:page}">
+      <div class="product-details">
+        <div class="product-title">
+          <div class="product-name">
+            {{product?.name ? product?.name : "--"}}
+          </div>
+          <div class="icons">
+           
+            <fa-icon [icon]="faTimes" class="icon" (click)="deleteProduct(product)"></fa-icon>
+            <fa-icon [icon]="faEdit" class="icon" (click)="navigate('/manageProducts/updateProduct/'+product._id)">
+            </fa-icon>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="image-container">
+
+            <fa-icon [icon]="faImage" class="image-icon" *ngIf="product.image.length==0"></fa-icon>
+            <img class="product-image" src="{{product.image[0]}}" alt="Image Not Found" *ngIf="product.image.length>0"
+              (click)="openModal(product)" />
+
+          </div>
+
+        </div>
+        <div class="row product-footer">
+          <div class="col-sm-6 col-lg-6 amounts-container">
+            <div class="quantity"><span class="amount-subtitle">Catégorie :</span><span
+                class="amount-value">{{product.category ? product.category : "--"}}</span></div>
+            <div class="quantity"><span class="amount-subtitle">Marque :</span><span
+                class="amount-value">{{product.brand ? product.brand : "--"}}</span></div>
+            <div class="quantity"><span class="amount-subtitle">Couleur :</span><span
+                class="amount-value">{{product.color ? product.color: "--"}}</span></div>
+            <div class="quantity"><span class="amount-subtitle">Quantité :</span>
+              <span
+              class="amount-value" [ngClass]="{epuise: product.quantity <= 0}">{{product.quantity ? product.quantity : ((product.quantity == 0) ? "Epuisé" :"--")}}</span></div>
+            <div class="product-sell-price"><span class="amount-subtitle">Prix de vente :</span><span
+                class="amount-value">{{product.sellingPrice ? product.sellingPrice+" DT" : "--"}}</span>
+            </div>
+
+          </div>
+          <div class="col-sm-6 col-lg-6 buttons-container">
+            <button class="btn custom-btn-primary product-button" (click)="loadingModal(product._id,product.name)"
+              routerLinkActive="router-link-active">Charger</button>
+              <button class="btn custom-btn-secondary product-button" (click)="sellingModal(product._id,product.name)"
+              routerLinkActive="router-link-active">Vendre</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="width: 100%;text-align: center;padding-top:50px;padding-right:40px;" *ngIf="filtredProducts?.length > 20">
+      <pagination-controls (pageChange)="page = $event" directionLinks="true" class="nopadding" responsive="true"
+          previousLabel="Précedent" nextLabel="Suivant"></pagination-controls>
+  </div>
+  </div>
+  
+</div>

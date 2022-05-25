@@ -1,0 +1,291 @@
+.menu-item-container {
+    padding: 30px;
+}
+
+.menu-item {
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 120px;
+    height: 100%;
+    color: white;
+    font-size: 30px;
+    background-color: #189ad3;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px 2px gray;
+}
+
+.menu-item:hover {
+    background-color: #1582b1;
+    box-shadow: 10px 10px 30px 10px gray;
+}
+
+.menu-item:active {
+    background-color: #167097;
+    box-shadow: 10px 10px 30px 16px gray;
+}
+
+.product-container {
+    padding: 30px;
+    padding-bottom: 50px;
+}
+
+.product-details {
+    vertical-align: middle;
+    height: 100%;
+    padding: 20px;
+    padding-bottom: 40px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px 2px gray;
+}
+
+.product-details:hover {
+    background-color: rgba(185, 185, 185, 0.103);
+}
+
+.product-title {
+    width: 100%;
+}
+
+
+.icon{
+    float: right;
+    margin-left: 5px;
+}
+
+.icons {
+    display: inline;
+    float: right;
+    font-size: 25px;
+}
+
+.centered-content {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.image-icon {
+    font-size: 100px;
+    color: gray;
+}
+
+
+
+.image-container {
+    position: relative;
+    text-align: center;
+    min-height: 500px;
+    max-height: 500px;
+}
+
+.product-image {
+    text-align: center;
+    width: 100%;
+    max-height: 500px;
+    box-sizing: border-box;
+}
+
+.product-name {
+    font-size: 30px;
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80%;
+}
+
+.product-content {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: block;
+    border-top: dimgrey solid 1px;
+}
+
+.product-description {
+    font-size: 12px;
+    margin-top: 5px;
+    padding-bottom: 50px;
+    min-height: 200px;
+    border-bottom: dimgrey solid 1px;
+    border-top: dimgrey solid 1px;
+    overflow-wrap: normal;
+}
+
+.product-footer {
+    bottom: 0;
+    font-size: 10px;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: dimgrey;
+    display: block;
+}
+
+.product-quantity {
+    overflow-wrap: normal;
+}
+
+.product-price {
+    overflow-wrap: normal;
+}
+
+.product-sell-price {
+    overflow-wrap: normal;
+}
+
+.amount-subtitle {
+    font-size: 14px;
+    color: dimgrey;
+}
+
+.amount-value {
+    font-size: 14px;
+    padding-left: 5px;
+    color: rgb(37, 37, 37);
+}
+
+.epuise{
+    color: red;
+    font-weight: bold;
+}
+
+.amounts-container {
+    padding-top:10px;
+    float: left;
+}
+
+.buttons-container {
+    float: right;
+    padding: 10px;
+    padding-right: 0;
+}
+
+.product-button {
+    margin-bottom: 10px;
+    margin-right: 0;
+    display: block;
+    width: 90%;
+}
+
+.title {
+    text-align: center;
+}
+
+.title-row {
+    padding-top: 0;
+}
+
+.filter-row {
+    padding: 30px;
+}
+
+.search-input {
+    font-size: 20px;
+}
+
+.search-input-btn {
+}
+
+.amount-input {
+    margin-bottom: 5px;
+}
+
+.search-btn-container {
+    /*display: grid;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-btn,
+.reset-btn {
+    margin: auto;
+    width: 40%;
+}
+
+.message {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: gray;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+.add-btn,
+.show-filter-btn {
+    width: 100px;
+    font-size: 20px;
+}
+
+@media (max-width: 667px) {
+
+    .title{
+        font-size: 30px;;
+    }
+
+    .product-name {
+        font-size: 10px;
+        width: 75%;
+    }
+
+    .product-details{
+        padding-right:15px;
+        padding-left:15px;
+    }
+
+    .product-container {
+        padding: 5px;
+    }
+
+    .icons {
+        font-size: 11px;
+        width: 25%;
+    }
+    .image-container {
+        min-height: 150px;
+        max-height: 150px;
+    }
+
+    .product-image {
+        max-height: 150px;
+    }
+
+    .amount-subtitle {
+        font-size: 9px;
+    }
+
+    .amount-value {
+        font-size: 9px;
+        padding-left: 3px;
+    }
+
+    .product-button {
+        float: left;
+        width: 40%;
+        font-size: 8px;
+        padding:5px;
+    }
+
+    .buttons-container {
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+
+    .product-details {
+        padding-bottom:10px;
+        padding-top:10px;
+    }
+}
+

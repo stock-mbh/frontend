@@ -1,0 +1,78 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{product.name ? product.name : "--"}}</h4>
+    <button type="button" class="close" aria-label="Fermer" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center flex-nowrap">
+            <div class="col-md-6 image-container" style="text-align: center;padding-bottom: 10px;">
+                <img src="{{mainImage}}" class="product-main-image" />
+            </div>
+            <div class="col-md-6 details">
+                <div class="row">
+                    <div class="col-12 col-sm-12 detail">
+                        <span class="subtitle">Catégorie : </span>
+                        <span >{{product.category ? product.category : "--"}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12">
+                        <span class="subtitle">Marque : </span>
+                        <span>{{product.brand ? product.brand : "--"}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 ">
+                        <span class="subtitle">Couleur : </span>
+                        <span>{{product.color ? product.color : "--"}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 ">
+                        <span class="subtitle">Etat : </span>
+                        <span>{{product.state ? product.state : "--"}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12">
+                        <span class="subtitle">Fournisseur : </span>
+                        <span>{{product.provider ? product.provider : "--"}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12">
+                        <span class="subtitle">Prix de vente : </span>
+                        <span>{{product.sellingPrice ? product.sellingPrice+" DT" : "--"}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12">
+                        <span class="subtitle">Quantité : </span>
+                        <span [ngClass]="{epuise: product.quantity <= 0}">{{product.quantity ? product.quantity : ((product.quantity == 0) ? "Epuisé" :"--")}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 description">
+                        <span class="subtitle">Déscription :</span><br/>
+                        <span>{{product.description ? product.description : "--"}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center flex-nowrap">
+            <div class="col-12 images-row">
+                <div *ngFor="let image of product.image" style="text-align: center;">
+                    <img src="{{image}}" class="product-image" (click)="selectImage(image)" />
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Fermer</button>
+</div>-->
