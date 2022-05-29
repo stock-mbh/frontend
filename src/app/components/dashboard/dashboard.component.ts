@@ -682,7 +682,7 @@ export class DashboardComponent implements OnInit {
         this.statService.undoOperation(element.id).subscribe(
           data => {
             console.log(element);
-            let quantity = element.product.quantity + (type == "SOLD" ? element.quantity : -element.quantity);
+            let quantity = element.product?.quantity + (type == "SOLD" ? element?.quantity : -element?.quantity);
             let product = {
               _id: element.product._id,
               quantity: quantity
