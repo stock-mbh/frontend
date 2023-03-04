@@ -18,6 +18,25 @@
     box-shadow: 10px 10px 30px  2px gray;
 }
 
+.custom-btn-primary{
+    color: white;
+    background-color: rgb(24,118,189); /* rgb(248,130,56)  */
+    margin-right:10px;
+    margin-left:10px;
+    padding:10px;
+  }
+
+  .custom-btn-secondary{
+    color: rgb(248,130,56);
+    background-color: white;
+    border-color: rgb(24,118,189);
+    border-width: 2px;
+    margin-right:10px;
+    margin-left:10px;
+    padding:10px;
+
+  }
+
 .subtitle{
     width:100%;
     font-size: 28px;

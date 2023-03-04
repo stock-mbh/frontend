@@ -13,18 +13,18 @@
     height: 100%;
     color: white;
     font-size: 30px;
-    background-color: #189ad3;
+    background-color: rgb(248,130,56);
     border-radius: 20px;
     box-shadow: 10px 10px 30px 2px gray;
 }
 
 .menu-item:hover {
-    background-color: #1582b1;
+    background-color: rgb(249, 147, 84);
     box-shadow: 10px 10px 30px 10px gray;
 }
 
 .menu-item:active {
-    background-color: #167097;
+    background-color: rgb(249, 147, 84);
     box-shadow: 10px 10px 30px 16px gray;
 }
 
@@ -41,7 +41,7 @@
     margin:40px;
 }
 .color{
-    background-color: #189ad3;
+    background-color: rgb(248,130,56);
     padding-right:50px;
     padding-left:50px;
     padding-top:20px;

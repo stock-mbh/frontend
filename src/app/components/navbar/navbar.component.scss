@@ -1,14 +1,17 @@
-#icon, .logo {
+#icon {
     width:60px;
     height:60px;
     cursor: pointer;
     
   }
+  .logo{
+    width:25%;
+  }
   .djotech{
     cursor: pointer;
     position: absolute;
     bottom: 17px;
-    color: rgb(24,118,189);
+    color: rgb(248,130,56);
     padding-top: 200px !important;
     font-size: 30px;
     font-weight: bold;
@@ -27,7 +30,7 @@
   margin-right:30px;
   margin-left:35px;
   font-size: 50px;
-  color:rgb(24,118,189);
+  color:rgb(248,130,56);
   cursor: pointer;
 }
 .arrow:hover{
